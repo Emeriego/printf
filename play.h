@@ -4,11 +4,11 @@ int _printf(const char *format, ...)
 {
     va_list args;
     va_start(args, format);
-
+     const char *str;
     int printed_chars; 
-    printed_chars = 0;
+    char c;
      char specifier;
-
+   printed_chars = 0;
     while (*format)
     {
         if (*format == '%')
@@ -19,14 +19,14 @@ int _printf(const char *format, ...)
             {
                 case 'c':
                 {
-                    char c = va_arg(args, int); 
+                    c = va_arg(args, int); 
                     write(1, &c, 1); 
                     printed_chars++;
                     break;
                 }
                 case 's':
                 {
-                    const char *str = va_arg(args, const char *);
+                    str = va_arg(args, const char *);
                     int len = 0;
                     while (str[len])
                         len++;
