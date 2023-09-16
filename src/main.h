@@ -2,6 +2,8 @@
 #define MAIN_H
 #include <stdio.h>
 #include <stdarg.h>
+#include <unistd.h>
+
 int _printf(const char *format, ...);
 int put_str(char *str);
 int put_char(char c);
