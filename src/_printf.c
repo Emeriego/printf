@@ -4,6 +4,8 @@
 int _printf(const char *format, ...)
 {
     size_t i, j;
+    int c;
+    char *str;
     va_list my_args;
 
 
@@ -20,13 +22,16 @@ int _printf(const char *format, ...)
         }
         else
         {
+            i++;
         switch (format[i])
 		{
 			case 'c':
-				put_char(va_arg(my_args, int));
+                c = va_arg(my_args, int);
+				put_char((char)c);
 				break;
 			case 's':
-				put_str(va_arg(my_args, char *));
+				str = va_arg(my_args, char *);
+                put_str(str);
 				break;
 			default:
 				break;
