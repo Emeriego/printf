@@ -1,13 +1,11 @@
 #include "main.h"
-#include <stdarg.h>
 
 int _printf(const char *format, ...)
 {
-    size_t i, j;
+    size_t i;
     int c;
     char *str;
     va_list my_args;
-
 
     if (format == NULL || format[0] == '\0')
     {

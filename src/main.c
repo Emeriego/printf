@@ -1,4 +1,3 @@
-#include <limits.h>
 #include <stdio.h>
 #include "main.h"
 
@@ -10,10 +9,10 @@
 int main(void)
 {
 
-    char *str = "Let's try to _printf a simple sentence.\n";
-    
-    _printf("Character:[%c]\n", 'H');
-    _printf("Strings:[%s]\n", str);
+    char *str = "Christian";
+    char *str2 = "Christiana";
+
+    _printf("Name:[%s %s], %c\n", str, str2, 'G');
     
     return (0);
 }
