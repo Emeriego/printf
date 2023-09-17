@@ -35,6 +35,7 @@ Repeat_this:
 				goto Repeat_this;
 			}
 			w--;
+
 		}
 		_putchar(format[q]);
 		l++;

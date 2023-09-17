@@ -22,7 +22,7 @@ typedef struct PrintFunction
 
 int put_ptr(va_list my_args);
 int put_hex2_aux(unsigned long int num);
-int put_hex_aux(unsigned int value);
+int put_hex_aux(unsigned int num);
 int put_str_ex(va_list my_args);
 int put_hex(va_list my_args);
 int put_hex2(va_list my_args);
