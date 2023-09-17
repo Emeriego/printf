@@ -23,4 +23,5 @@ int _putchar(char c);
 int put_str(va_list my_args);
 int put_char(va_list my_args);
 int custom_putint(int num);
+int put_int(va_list, my_args);
 #endif
