@@ -1,19 +1,28 @@
-
-#include <stdio.h>
 #include "main.h"
 
 /**
- * put_str - print string
- * @str: for strings
- * Result: 0 when succesful
+ * print_string - Print a string
+ * @args: The argument list
+ *
+ * Return: The number of characters in the string (excluding the null byte)
  */
 
-int put_str(char *str)
+int put_str(va_list my_args)
 {
-	while (*str != '\0')
-	{
-		put_char(*str);
-		str++;
-	}
-	return (0);
+    int character_count = 0;
+    char *str = va_arg(my_args, char *);
+
+    if (!str)
+    {
+        str = "(null)";
+    }
+
+    while (*str)
+    {
+        _putchar(*str);
+        character_count++;
+        str++;
+    }
+
+    return (character_count);
 }

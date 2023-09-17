@@ -2,51 +2,50 @@
 
 /**
  * _printf - Custom printf function
- *
  * @format: The format string
+ *
  * Return: The number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
-	int character_count, m, num;
-	char c, *str;
 	va_list my_args;
+	int m, count = 0;
 
-	character_count = 0;
-	if (!format || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
+	PrintDescriptor data[] = {
+		{"c", print_char},
+		{"s", put_str}
+	};
 	va_start(my_args, format);
-	for (m = 0; format[m] != '\0'; m++)
+	if (!format)
+		return (-1);
+	m = 0;
+	while (format && *(format + m))
 	{
-		if (format[m] != '%')
+		if (format[m] == '%' && (!format[m + 1] || format[m + 1] == ' '))
+			return (-1);
+
+		else if (*(format + m) == '%' && *(format + m + 1) == 'c')
 		{
-			put_char(format[m]);
-		}
-		else if (format[m] == '%' && format[m + 1] == 'c')
-		{
-			c = va_arg(my_args, int);
-			put_char(c);
+			count += data[0].function_pointer(my_args);
 			m++;
 		}
-		else if (format[m] == '%' && format[m + 1] == 's')
+		else if (*(format + m) == '%' && *(format + m + 1) == 's')
 		{
-			str = va_arg(my_args, char *);
-			character_count += put_str(str);
+			count += data[1].function_pointer(my_args);
 			m++;
 		}
-		else if (format[m] == '%' && format[m + 1] == '%')
-			put_char('%');
-		else if (format[m + 1] == 'd' || format[m + 1] == 'i')
+		else if (*(format + m) == '%' && *(format + m + 1) == '%')
 		{
-			num = va_arg(my_args, int);
-			character_count += custom_putint(num);
+			count += _putchar('%');
 			m++;
 		}
 		else
-		put_char('%');
-		character_count++;
+		{
+			_putchar(*(format + m));
+			count++;
+		}
+		m++;
 	}
 	va_end(my_args);
-	return (character_count);
+	return (count);
 }

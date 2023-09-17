@@ -6,8 +6,20 @@
 #include <unistd.h>
 #include <limits.h>
 
+/**
+ * struct PrintFunction - print data
+ * @specifier: character.
+ * @function_pointer: function pointer
+ */
+typedef struct PrintFunction {
+    char *specifier;
+    int (*function_pointer)(va_list my_args);
+} PrintDescriptor;
+
+
 int _printf(const char *format, ...);
-int put_str(char *str);
-int put_char(char c);
+int _putchar(char c);
+int put_str(va_list my_args);
+int print_char(va_list my_args);
 int custom_putint(int num);
 #endif

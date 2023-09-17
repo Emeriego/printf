@@ -1,12 +1,14 @@
 #include "main.h"
 
 /**
- * put_char - costum putchar
- * @c: character count
- * Return: write(1,&c,1)
+ * print_char - Print a character
+ * @args: The argument list
+ *
+ * Return: 1 if successful
  */
-
-int put_char(char c)
+int print_char(va_list my_args)
 {
-	return (write(1, &c, 1));
+    char character = va_arg(my_args, int);
+    _putchar(character);
+    return (1);
 }
