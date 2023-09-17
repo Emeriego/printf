@@ -1,16 +1,15 @@
 #include "main.h"
 
 /**
- * put_char - Print a character
- * @my_args: The argument list
- *
- * Return: 1 if successful
+ * printf_char - prints a char.
+ * @val: arguments.
+ * Return: 1.
  */
-
-int put_char(va_list my_args)
+int printf_char(va_list val)
 {
-	char character = va_arg(my_args, int);
+	char s;
 
-	_putchar(character);
+	s = va_arg(val, int);
+	_putchar(s);
 	return (1);
 }
