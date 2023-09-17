@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	va_list my_args;
-	int m, count = 0;
+	int m, i, count = 0;
 
 	PrintDescriptor data[] = {
 		{"c", put_char},
@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[m] == '%' && (!format[m + 1] || format[m + 1] == ' '))
 			return (-1);
-		for (int i = 0; i < 4; i++)
+		for (i = 0; i < 4; i++)
 			if (*(format + m) == '%' && *(format + m + 1) == data[i].specifier[0])
 			{
 				count += data[i].function_pointer(my_args);
