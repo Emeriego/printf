@@ -4,7 +4,7 @@
  * @my_args: argument to print
  * Return: returns a number of characters printed
  */
-int put_int(va_list args)
+int put_int(va_list my_args)
 {
 	int n = va_arg(my_args, int);
 	int num, last_dig = n % 10, digit, x = 1;

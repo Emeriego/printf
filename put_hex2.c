@@ -5,7 +5,7 @@
  * @my_args: arguments.
  * Return: counter.
  */
-int put_hex2(va_list val)
+int put_hex2(va_list my_args)
 {
 	int i;
 	int *arr;

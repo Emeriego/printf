@@ -29,7 +29,7 @@ int put_r13(va_list my_args)
 		}
 		if (!k)
 		{
-			_putchar(s[i]);
+			_putchar(str[i]);
 			c++;
 		}
 	}

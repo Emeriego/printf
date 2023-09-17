@@ -29,11 +29,11 @@ int put_unsign(va_list my_args)
 			num = num / 10;
 		}
 		num = n;
-		while (exp > 0)
+		while (x > 0)
 		{
-			digit = num / exp;
+			digit = num / x;
 			_putchar(digit + '0');
-			num = num - (digit * exp);
+			num = num - (digit * x);
 			x = x / 10;
 			i++;
 		}

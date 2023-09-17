@@ -5,7 +5,7 @@
  * @num: arguments.
  * Return: counter.
  */
-int printf_hex_aux(unsigned long int num)
+int put_hex2_aux(unsigned long int num)
 {
 	long int i;
 	long int *arr;
