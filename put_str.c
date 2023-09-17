@@ -1,7 +1,7 @@
 #include "main.h"
 /**
- * printf_string - print a string.
- * @val: argumen t.
+ * put_str - print a string.
+ * @my_args: argumen t.
  * Return: the length of the string.
  */
 

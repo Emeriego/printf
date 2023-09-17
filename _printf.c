@@ -6,40 +6,40 @@
  */
 int _printf(const char * const format, ...)
 {
-	c_specifier m[] = {
+	c_specifier spec[] = {
 		{"%s", put_str}, {"%c", put_char},
-		{"%%", printf_37},
-		{"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
-		{"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
-		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
-		{"%S", printf_exclusive_string}, {"%p", printf_pointer}
+		{"%%", put_37},
+		{"%i", put_int}, {"%d", put_dec}, {"%r", put_str_rev},
+		{"%R", put_r13}, {"%b", put_bin}, {"%u", put_unsign},
+		{"%o", put_oct}, {"%x", put_hex2}, {"%X", put_hex},
+		{"%S", put_str_ex}, {"%p", put_ptr}
 	};
 
-	va_list args;
-	int i = 0, j, len = 0;
+	va_list my_args;
+	int q = 0, w, l = 0;
 
-	va_start(args, format);
+	va_start(my_args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
-Here:
-	while (format[i] != '\0')
+Repeat_this:
+	while (format[q] != '\0')
 	{
-		j = 13;
-		while (j >= 0)
+		w = 13;
+		while (w >= 0)
 		{
-			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+			if (spec[w].specifier[0] == format[q] && spec[w].specifier[1] == format[q + 1])
 			{
-				len += m[j].f(args);
-				i = i + 2;
-				goto Here;
+				l += spec[w].function_pointer(my_args);
+				q = q + 2;
+				goto Repeat_this;
 			}
-			j--;
+			q--;
 		}
-		_putchar(format[i]);
-		len++;
-		i++;
+		_putchar(format[q]);
+		l++;
+		q++;
 	}
-	va_end(args);
-	return (len);
+	va_end(my_args);
+	return (l);
 }

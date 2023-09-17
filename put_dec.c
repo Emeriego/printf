@@ -1,14 +1,16 @@
 #include "main.h"
 /**
- * put_unsign - prints integer
- * @my_args: argument to print
+ * printf_dec - prints decimal
+ * @args: argument to print
  * Return: number of characters printed
  */
-int put_unsign(va_list my_args)
+
+int put_dec(va_list my_args)
 {
-	unsigned int n = va_arg(my_args, unsigned int);
-	int num, last_dig = n % 10, digit, x = 1;
+	int n = va_arg(my_args, int);
+	int num, last_dig = n % 10, digit;
 	int  i = 1;
+	int exp = 1;
 
 	n = n / 10;
 	num = n;
@@ -25,7 +27,7 @@ int put_unsign(va_list my_args)
 	{
 		while (num / 10 != 0)
 		{
-			x = x * 10;
+			exp = exp * 10;
 			num = num / 10;
 		}
 		num = n;
@@ -34,7 +36,7 @@ int put_unsign(va_list my_args)
 			digit = num / exp;
 			_putchar(digit + '0');
 			num = num - (digit * exp);
-			x = x / 10;
+			exp = exp / 10;
 			i++;
 		}
 	}
