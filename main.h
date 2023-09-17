@@ -22,13 +22,13 @@ typedef struct PrintFunction
 
 int printf_pointer(va_list val);
 int printf_hex_aux(unsigned long int num);
-int printf_HEX_aux(unsigned int num);
+int put_hex_aux(unsigned int value);
 int printf_exclusive_string(va_list val);
 int printf_HEX(va_list val);
 int printf_hex(va_list val);
 int printf_oct(va_list val);
 int printf_unsigned(va_list args);
-int printf_bin(va_list val);
+int put_bin(va_list input_args);
 int printf_srev(va_list args);
 int printf_rot13(va_list args);
 int printf_int(va_list args);
