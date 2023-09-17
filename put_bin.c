@@ -2,10 +2,10 @@
 
 /**
  * put_bin - prints binary numbers.
- * @input_args: arguments.
+ * @my__args: arguments.
  * Return: count.
  */
-int put_bin(va_list input_args)
+int put_bin(va_list my_args)
 {
     int isBitSet = 0;
     int count = 0;
