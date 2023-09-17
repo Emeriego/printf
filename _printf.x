@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _printf - Custom printf function
  * @format: The format string
@@ -12,11 +13,8 @@ int _printf(const char *format, ...)
 
 	PrintDescriptor data[] = {
 		{"c", put_char},
-		{"s", put_str},
-		{"d", put_int},
-		{"i", put_int}
+		{"s", put_str}
 	};
-
 	va_start(my_args, format);
 	if (!format)
 		return (-1);
@@ -25,13 +23,17 @@ int _printf(const char *format, ...)
 	{
 		if (format[m] == '%' && (!format[m + 1] || format[m + 1] == ' '))
 			return (-1);
-		for (int i = 0; i < 4; i++)
-			if (*(format + m) == '%' && *(format + m + 1) == data[i].specifier[0])
-			{
-				count += data[i].function_pointer(my_args);
-				m++;
-				break;
-			}
+
+		else if (*(format + m) == '%' && *(format + m + 1) == 'c')
+		{
+			count += data[0].function_pointer(my_args);
+			m++;
+		}
+		else if (*(format + m) == '%' && *(format + m + 1) == 's')
+		{
+			count += data[1].function_pointer(my_args);
+			m++;
+		}
 		else if (*(format + m) == '%' && *(format + m + 1) == '%')
 		{
 			count += _putchar('%');
