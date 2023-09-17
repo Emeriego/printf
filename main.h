@@ -9,4 +9,5 @@
 int _printf(const char *format, ...);
 int put_str(char *str);
 int put_char(char c);
+int custom_putint(int num);
 #endif
