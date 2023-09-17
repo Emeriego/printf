@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	int m, count = 0;
 
 	PrintDescriptor data[] = {
-		{"c", print_char},
+		{"c", put_char},
 		{"s", put_str}
 	};
 	va_start(my_args, format);

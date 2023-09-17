@@ -11,15 +11,16 @@
  * @specifier: character.
  * @function_pointer: function pointer
  */
-typedef struct PrintFunction {
-    char *specifier;
-    int (*function_pointer)(va_list my_args);
+typedef struct PrintFunction
+{
+	char *specifier;
+	int (*function_pointer)(va_list my_args);
 } PrintDescriptor;
 
 
 int _printf(const char *format, ...);
 int _putchar(char c);
 int put_str(va_list my_args);
-int print_char(va_list my_args);
+int put_char(va_list my_args);
 int custom_putint(int num);
 #endif
