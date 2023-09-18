@@ -40,6 +40,8 @@ int put_char(va_list my_args);
 int put_str(va_list my_args);
 int _putchar(char c);
 int _printf(const char *format, ...);
-int _printf0(const char *format, ...);
+int _printfs_c(const char *format, ...);
+int put_character(va_list my_args);
+int put_string(va_list my_args);
 
 #endif
