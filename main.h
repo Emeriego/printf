@@ -7,16 +7,6 @@
 #include <limits.h>
 #include <stdlib.h>
 
-/**
- * struct PrintFunction - print data
- * @specifier: character.
- * @function_pointer: function pointer
- */
-typedef struct Function
-{
-	char *specifier;
-	int (*function_pointer)(va_list my_args);
-} PrintDescriptor;
 
 
 /**
@@ -29,6 +19,18 @@ typedef struct PrintFunction
 	char *sp;
 	int (*f_ptr)(va_list my_args);
 } c_specifier;
+
+/**
+ * struct Function - print data
+ * @specifier: character.
+ * @function_pointer: function pointer
+ */
+typedef struct Function
+{
+	char *specifier;
+	int (*function_pointer)(va_list my_args);
+} PrintDescriptor;
+
 
 int put_ptr(va_list my_args);
 int put_hex2_aux(unsigned long int num);
