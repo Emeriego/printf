@@ -7,7 +7,7 @@
 int _printf(const char *format, ...)
 {
 	c_specifier spec[] = {
-		{"s", put_str}, {"c", put_char},
+		{"%s", put_str}, {"%c", put_char},
 		{"%i", put_int}, {"%d", put_dec}, {"%r", put_str_rev},
 		{"%R", put_r13}, {"%b", put_bin}, {"%u", put_unsign},
 		{"%o", put_oct}, {"%x", put_hex2}, {"%X", put_hex},
@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 	while (format[q] != '\0')
 	{
 		spec_found = 0;
-		for (w = 13; w >= 0; w--)
+		for (w = 14; w >= 0; w--)
 		{
 			if (spec[w].sp[0] == format[q] && spec[w].sp[1] == format[q + 1])
 			{

@@ -21,7 +21,7 @@ typedef struct PrintFunction
 } c_specifier;
 
 /**
- * struct PrintFunction - print data
+ * struct Function - print data
  * @specifier: character.
  * @function_pointer: function pointer
  */
