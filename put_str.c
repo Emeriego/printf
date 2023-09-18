@@ -9,17 +9,16 @@
 
 int put_str(va_list my_args)
 {
-    int character_count = 0;
-    char *str = va_arg(my_args, char *);
+	int character_count = 0;
+	char *str = va_arg(my_args, char *);
 
-    if (!str)
-        str = "(null)";
+	if (!str)
+		str = "(null)";
 
-    while (str[character_count] != '\0')
-    {
-        _putchar(str[character_count]);
-        character_count++;
-    }
-
-    return character_count;
+	while (str[character_count] != '\0')
+	{
+		_putchar(str[character_count]);
+		character_count++;
+	}
+	return (character_count);
 }
