@@ -8,13 +8,17 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list my_args;
-	int m, count = 0;
-
-	PrintDescriptor data[] = {
-		{"c", put_char},
-		{"s", put_str}
+	c_specifier spec[] = {
+		{"%s", put_str},
+		{"%c", put_char}
 	};
+
+	va_list my_args;
+	int w;
+	int spec_found;
+	int m, count;
+
+	count = 0;
 	va_start(my_args, format);
 	if (!format)
 		return (-1);
@@ -24,27 +28,22 @@ int _printf(const char *format, ...)
 		if (format[m] == '%' && (!format[m + 1] || format[m + 1] == ' '))
 			return (-1);
 
-		else if (*(format + m) == '%' && *(format + m + 1) == 'c')
+		for (w = 0; w < 14; w++)
 		{
-			count += data[0].function_pointer(my_args);
-			m++;
+			if (format[m] == '%' && format[m + 1] == spec[w].sp[1])
+			{
+				count += spec[w].f_ptr(my_args);
+				m += 2;
+				spec_found = 1;
+				break;
+			}
 		}
-		else if (*(format + m) == '%' && *(format + m + 1) == 's')
+		if (!spec_found)
 		{
-			count += data[1].function_pointer(my_args);
-			m++;
-		}
-		else if (*(format + m) == '%' && *(format + m + 1) == '%')
-		{
-			count += _putchar('%');
-			m++;
-		}
-		else
-		{
-			_putchar(*(format + m));
+			_putchar(format[m]);
 			count++;
+			m++;
 		}
-		m++;
 	}
 	va_end(my_args);
 	return (count);

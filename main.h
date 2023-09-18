@@ -13,9 +13,9 @@
  */
 typedef struct PrintFunction
 {
-	char *specifier;
-	int (*function_pointer)(va_list my_args);
-} PrintDescriptor;
+	char *sp;
+	int (*f_ptr)(va_list my_args);
+} c_specifier;
 
 
 int _printf(const char *format, ...);
