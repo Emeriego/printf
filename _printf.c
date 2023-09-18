@@ -7,11 +7,11 @@
 int _printf(const char *format, ...)
 {
 	c_specifier spec[] = {
-		{"%s", put_str}, {"%c", put_char},
+		{"%s", put_str7}, {"%c", put_char7},
 		{"%i", put_int}, {"%d", put_dec}, {"%r", put_str_rev},
 		{"%R", put_r13}, {"%b", put_bin}, {"%u", put_unsign},
 		{"%o", put_oct}, {"%x", put_hex2}, {"%X", put_hex},
-		{"%S", put_str_ex}, {"%p", put_ptr2}
+		{"%S", put_str_ex}, {"%p", put_ptr2}, {"%%", put_percent7}
 	};
 
 	va_list my_args;

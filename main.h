@@ -44,5 +44,8 @@ int _printfs_c(const char *format, ...);
 int put_character(va_list my_args);
 int put_string(va_list my_args);
 int put_ptr2(va_list my_args);
+int put_str7(va_list my_args);
+int put_char7(va_list my_args);
+int put_percent7(va_list my_args);
 
 #endif
