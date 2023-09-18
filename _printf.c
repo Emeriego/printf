@@ -1,51 +1,45 @@
 #include "main.h"
-
 /**
- * _printf - Custom printf function
- * @format: The format string
- *
- * Return: The number of characters printed
+ * _printf - is a function that selects the correct function to print.
+ * @format: identifier to look for.
+ * Return: the length of the string.
  */
-int _printf(const char *format, ...)
+int _printf(const char * const format, ...)
 {
-	va_list my_args;
-	int m, count = 0;
-
-	PrintDescriptor data[] = {
-		{"c", put_char},
-		{"s", put_str}
+	c_specifier spec[] = {
+		{"%s", put_str}, {"%c", put_character},
+		{"%i", put_int}, {"%d", put_dec}, {"%r", put_str_rev},
+		{"%R", put_r13}, {"%b", put_bin}, {"%u", put_unsign},
+		{"%o", put_oct}, {"%x", put_hex2}, {"%X", put_hex},
+		{"%S", put_str_ex}, {"%p", put_ptr}
 	};
-	va_start(my_args, format);
-	if (!format)
-		return (-1);
-	m = 0;
-	while (format && *(format + m))
-	{
-		if (format[m] == '%' && (!format[m + 1] || format[m + 1] == ' '))
-			return (-1);
 
-		else if (*(format + m) == '%' && *(format + m + 1) == 'c')
+	va_list my_args;
+	int q = 0, w, spec_found, l = 0;
+
+	va_start(my_args, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+	while (format[q] != '\0')
+	{
+		spec_found = 0;
+		for (w = 12; w >= 0; w--)
 		{
-			count += data[0].function_pointer(my_args);
-			m++;
+			if (spec[w].sp[0] == format[q] && spec[w].sp[1] == format[q + 1])
+			{
+				l += spec[w].f_ptr(my_args);
+				q = q + 2;
+				spec_found = 1;
+				break;
+			}
 		}
-		else if (*(format + m) == '%' && *(format + m + 1) == 's')
+		if (!spec_found)
 		{
-			count += data[1].function_pointer(my_args);
-			m++;
+			_putchar(format[q]);
+			l++;
+			q++;
 		}
-		else if (*(format + m) == '%' && *(format + m + 1) == '%')
-		{
-			count += _putchar('%');
-			m++;
-		}
-		else
-		{
-			_putchar(*(format + m));
-			count++;
-		}
-		m++;
 	}
 	va_end(my_args);
-	return (count);
+	return (l);
 }

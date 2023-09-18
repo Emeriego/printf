@@ -1,12 +1,12 @@
 #include "main.h"
 /**
- * put_int - prints integer
+ * put_unsign - prints integer
  * @my_args: argument to print
- * Return: returns a number of characters printed
+ * Return: number of characters printed
  */
-int put_int(va_list my_args)
+int put_unsign(va_list my_args)
 {
-	int n = va_arg(my_args, int);
+	unsigned int n = va_arg(my_args, unsigned int);
 	int num, last_dig = n % 10, digit, x = 1;
 	int  i = 1;
 
@@ -42,3 +42,4 @@ int put_int(va_list my_args)
 
 	return (i);
 }
+
