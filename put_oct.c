@@ -20,16 +20,15 @@ int put_oct(va_list my_args)
 	}
 	c++;
 	arr = malloc(c * sizeof(int));
-
-	for (i = 0; i < c; i++)
+	i = 0;
+	while (i < c)
 	{
 		arr[i] = temp % 8;
 		temp /= 8;
+		i++;
 	}
 	for (i = c - 1; i >= 0; i--)
-	{
 		_putchar(arr[i] + '0');
-	}
 	free(arr);
 	return (c);
 }

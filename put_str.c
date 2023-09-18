@@ -2,7 +2,7 @@
 /**
  * put_str - print a string.
  * @my_args: argumen t.
- * Return: the length of the string.
+ * Return: returns the length of the string.
  */
 
 int put_str(va_list my_args)
