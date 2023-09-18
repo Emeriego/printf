@@ -4,7 +4,7 @@
  * @format: identifier to look for.
  * Return: the length of the string.
  */
-int _printf(const char * const format, ...)
+int _printf(const char *format, ...)
 {
 	c_specifier spec[] = {
 		{"%s", put_string}, {"%c", put_character},
