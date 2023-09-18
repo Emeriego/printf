@@ -1,44 +1,24 @@
 #include "main.h"
 /**
- * put_int - prints integer
- * @my_args: argument to print
- * Return: returns a number of characters printed
+ * put_int - Print an integer
+ * @my_args: The argument list
+ *
+ * Return: The number of characters printed
  */
 int put_int(va_list my_args)
 {
-	int n = va_arg(my_args, int);
-	int num, last_dig = n % 10, digit, x = 1;
-	int  i = 1;
+	int num = va_arg(my_args, int);
+	int count = 0;
 
-	n = n / 10;
-	num = n;
-
-	if (last_dig < 0)
+	if (num < 0)
 	{
-		_putchar('-');
+		count += _putchar('-');
 		num = -num;
-		n = -n;
-		last_dig = -last_dig;
-		i++;
 	}
-	if (num > 0)
+	if (num / 10 != 0)
 	{
-		while (num / 10 != 0)
-		{
-			x = x * 10;
-			num = num / 10;
-		}
-		num = n;
-		while (x > 0)
-		{
-			digit = num / x;
-			_putchar(digit + '0');
-			num = num - (digit * x);
-			x = x / 10;
-			i++;
-		}
+		count += put_int(my_args);
 	}
-	_putchar(last_dig + '0');
-
-	return (i);
+	count += _putchar('0' + (num % 10));
+	return (count);
 }
