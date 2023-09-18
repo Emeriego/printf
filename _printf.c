@@ -45,6 +45,7 @@ int _printf(const char *format, ...)
 }
 
 
+#include "main.h"
 
 /**
  * _printfs - Custom printf function
