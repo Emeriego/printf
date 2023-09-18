@@ -10,7 +10,7 @@ int put_bin(va_list my_args)
     int isBitSet = 0;
     int count = 0;
     int bitIndex, singleBit = 1, binaryDigit;
-    unsigned int inputNum = va_arg(input_args, unsigned int);
+    unsigned int inputNum = va_arg(my_args, unsigned int);
     unsigned int maskedNum;
 
     for (bitIndex = 0; bitIndex < 32; bitIndex++)
