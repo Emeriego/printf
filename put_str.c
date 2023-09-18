@@ -8,22 +8,22 @@
 int put_str(va_list my_args)
 {
 	char *str;
-	int m, counter;
+	int m, l;
 
 	str = va_arg(my_args, char *);
 	if (str == NULL)
 	{
 		str = "(null)";
-		counter = _strlen(str);
-		for (m = 0; m < counter; m++)
+		l = _strlen(str);
+		for (m = 0; m < l; m++)
 			_putchar(str[m]);
-		return (counter);
+		return (l);
 	}
 	else
 	{
-		counter = _strlen(str);
-		for (m = 0; m < counter; m++)
+		l = _strlen(str);
+		for (m = 0; m < l; m++)
 			_putchar(str[m]);
-		return (counter);
+		return (l);
 	}
 }

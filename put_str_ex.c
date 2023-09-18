@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * printf_exclusive_string - print exclusuives string.
- * @val: argumen t.
- * Return: the length of the string.
+ * put_str_ex - prints string.
+ * @my_args: argument.
+ * Return: returns the length of the string.
  */
 
 int put_str_ex(va_list my_args)

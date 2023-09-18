@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * put_ptr - prints an hexgecimal number.
+ * put_ptr - prints an hexadecimal numbers.
  * @my_args: arguments.
  * Return: counter.
  */
@@ -22,7 +22,6 @@ int put_ptr(va_list my_args)
 		}
 		return (i);
 	}
-
 	a = (unsigned long int)ptr;
 	_putchar('0');
 	_putchar('x');
