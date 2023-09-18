@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _printf - Custom printf function
+ * _printfs_c- Custom printf function
  * @format: The format string
  *
  * Return: The number of characters printed
@@ -12,8 +12,8 @@ int _printfs_c(const char *format, ...)
 	int m, count = 0;
 
 	c_specifier spec[] = {
-		{"c", put_char},
-		{"s", put_str}
+		{"c", put_character},
+		{"s", put_string}
 	};
 	va_start(my_args, format);
 	if (!format)
