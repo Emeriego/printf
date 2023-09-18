@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * put_hex2 - prints an hexgecimal number.
  * @my_args: arguments.
@@ -12,7 +11,7 @@ int put_hex2(va_list my_args)
 	int c = 0;
 	unsigned int num = va_arg(my_args, unsigned int);
 	unsigned int temp = num;
-
+	
 	while (num / 16 != 0)
 	{
 		num /= 16;
