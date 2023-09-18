@@ -24,8 +24,7 @@ int _printf(const char * const format, ...)
 Repeat_this:
 	while (format[q] != '\0')
 	{
-		w = 12;
-		while (w >= 0)
+		for (w = 12; w >= 0; w--)
 		{
 			if (spec[w].specifier[0] == format[q] && spec[w].specifier[1] == format[q + 1])
 			{
@@ -33,8 +32,6 @@ Repeat_this:
 				q = q + 2;
 				goto Repeat_this;
 			}
-			w--;
-
 		}
 		_putchar(format[q]);
 		l++;
