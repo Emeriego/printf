@@ -34,7 +34,7 @@ int put_r13(va_list my_args);
 int put_int(va_list my_args);
 int put_dec(va_list my_args);
 int _strlen(char *s);
-int _strlenc(const char *s);
+/*int _strlenc(const char *s);*/
 int rev_string(char *s);
 int put_char(va_list my_args);
 int put_str(va_list my_args);

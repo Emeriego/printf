@@ -24,3 +24,6 @@ int put_string(va_list my_args)
 	}
 	return (character_count);
 }
+
+
+
