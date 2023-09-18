@@ -2,7 +2,7 @@
 
 /**
  * put_ptr - prints an hexgecimal number.
- * @val: arguments.
+ * @my_args: arguments.
  * Return: counter.
  */
 int put_ptr(va_list my_args)
