@@ -11,13 +11,13 @@
 
 /**
  * struct PrintFunction - print data
- * @specifier: character.
- * @function_pointer: function pointer
+ * @sp: character.
+ * @f_ptr: function pointer
  */
 typedef struct PrintFunction
 {
-	char *specifier;
-	int (*function_pointer)(va_list my_args);
+	char *sp;
+	int (*f_ptr)(va_list my_args);
 } c_specifier;
 
 int put_ptr(va_list my_args);

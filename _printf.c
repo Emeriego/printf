@@ -20,15 +20,14 @@ int _printf(const char * const format, ...)
 	va_start(my_args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	
 	while (format[q] != '\0')
 	{
 		spec_found = 0;
 		for (w = 12; w >= 0; w--)
 		{
-			if (spec[w].specifier[0] == format[q] && spec[w].specifier[1] == format[q + 1])
+			if (spec[w].sp[0] == format[q] && spec[w].sp[1] == format[q + 1])
 			{
-				l += spec[w].function_pointer(my_args);
+				l += spec[w].f_ptr(my_args);
 				q = q + 2;
 				spec_found = 1;
 				break;
@@ -36,9 +35,9 @@ int _printf(const char * const format, ...)
 		}
 		if (!spec_found)
 		{
-        _putchar(format[q]);
-        l++;
-        q++;
+			_putchar(format[q]);
+			l++;
+			q++;
 		}
 	}
 	va_end(my_args);
