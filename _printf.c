@@ -8,7 +8,6 @@ int _printf(const char * const format, ...)
 {
 	c_specifier spec[] = {
 		{"%s", put_str}, {"%c", put_char},
-		{"%%", put_37},
 		{"%i", put_int}, {"%d", put_dec}, {"%r", put_str_rev},
 		{"%R", put_r13}, {"%b", put_bin}, {"%u", put_unsign},
 		{"%o", put_oct}, {"%x", put_hex2}, {"%X", put_hex},
@@ -16,29 +15,30 @@ int _printf(const char * const format, ...)
 	};
 
 	va_list my_args;
-	int q = 0, w, l = 0;
+	int q = 0, w, spec_found, l = 0;
 
 	va_start(my_args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-
-Repeat_this:
 	while (format[q] != '\0')
 	{
-		w = 13;
-		while (w >= 0)
+		spec_found = 0;
+		for (w = 12; w >= 0; w--)
 		{
-			if (spec[w].specifier[0] == format[q] && spec[w].specifier[1] == format[q + 1])
+			if (spec[w].sp[0] == format[q] && spec[w].sp[1] == format[q + 1])
 			{
-				l += spec[w].function_pointer(my_args);
+				l += spec[w].f_ptr(my_args);
 				q = q + 2;
-				goto Repeat_this;
+				spec_found = 1;
+				break;
 			}
-			w--;
 		}
-		_putchar(format[q]);
-		l++;
-		q++;
+		if (!spec_found)
+		{
+			_putchar(format[q]);
+			l++;
+			q++;
+		}
 	}
 	va_end(my_args);
 	return (l);
