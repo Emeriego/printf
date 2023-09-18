@@ -15,27 +15,31 @@ int _printf(const char * const format, ...)
 	};
 
 	va_list my_args;
-	int q = 0, w, l = 0;
+	int q = 0, w, spec_found, l = 0;
 
 	va_start(my_args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-
-Repeat_this:
+	
 	while (format[q] != '\0')
 	{
+		spec_found = 0;
 		for (w = 12; w >= 0; w--)
 		{
 			if (spec[w].specifier[0] == format[q] && spec[w].specifier[1] == format[q + 1])
 			{
 				l += spec[w].function_pointer(my_args);
 				q = q + 2;
-				goto Repeat_this;
+				spec_found = 1;
+				break;
 			}
 		}
-		_putchar(format[q]);
-		l++;
-		q++;
+		if (!spec_found)
+		{
+        _putchar(format[q]);
+        l++;
+        q++;
+		}
 	}
 	va_end(my_args);
 	return (l);
