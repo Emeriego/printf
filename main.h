@@ -25,6 +25,7 @@ typedef struct PrintFunction
  * @specifier: character.
  * @function_pointer: function pointer
  */
+
 typedef struct Function
 {
 	char *specifier;
