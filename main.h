@@ -20,6 +20,17 @@ typedef struct PrintFunction
 	int (*f_ptr)(va_list my_args);
 } c_specifier;
 
+/**
+ * struct PrintFunction - print data
+ * @specifier: character.
+ * @function_pointer: function pointer
+ */
+typedef struct Function
+{
+	char *specifier;
+	int (*function_pointer)(va_list my_args);
+} PrintDescriptor;
+
 int put_ptr(va_list my_args);
 int put_hex2_aux(unsigned long int num);
 int put_hex_aux(unsigned int num);
@@ -40,7 +51,7 @@ int put_char(va_list my_args);
 int put_str(va_list my_args);
 int _putchar(char c);
 int _printf(const char *format, ...);
-int _printfs_c(const char *format, ...);
+int _printfs(const char *format, ...);
 int put_character(va_list my_args);
 int put_string(va_list my_args);
 int put_ptr2(va_list my_args);
