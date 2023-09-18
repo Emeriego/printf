@@ -43,5 +43,6 @@ int _printf(const char *format, ...);
 int _printfs_c(const char *format, ...);
 int put_character(va_list my_args);
 int put_string(va_list my_args);
+int put_ptr2(va_list my_args);
 
 #endif
