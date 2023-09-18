@@ -2,10 +2,10 @@
 #define MAIN_H
 
 #include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h>
-#include <limits.h>
 #include <stdlib.h>
+#include <stdarg.h>
+#include <limits.h>
+#include <unistd.h>
 
 
 
@@ -20,44 +20,27 @@ typedef struct PrintFunction
 	int (*f_ptr)(va_list my_args);
 } c_specifier;
 
-/**
- * struct Function - print data
- * @specifier: character.
- * @function_pointer: function pointer
- */
-typedef struct Function
-{
-	char *specifier;
-	int (*function_pointer)(va_list my_args);
-} PrintDescriptor;
-
-
-int put_ptr(va_list my_args);
-int put_hex2_aux(unsigned long int num);
-int put_hex_aux(unsigned int num);
-int put_str_ex(va_list my_args);
-int put_hex(va_list my_args);
-int put_hex2(va_list my_args);
-int put_oct(va_list my_args);
-int put_unsign(va_list my_args);
-int put_bin(va_list my_args);
-int put_str_rev(va_list my_args);
-int put_r13(va_list my_args);
-int put_int(va_list my_args);
-int put_dec(va_list my_args);
-int _strlen(char *s);
-int _strlenc(const char *s);
-int rev_string(char *s);
-int put_char(va_list my_args);
-int put_str(va_list my_args);
-int _putchar(char c);
-int _printf(const char *format, ...);
-int _printfs_c(const char *format, ...);
-int put_character(va_list my_args);
 int put_string(va_list my_args);
-int put_ptr2(va_list my_args);
-int put_str7(va_list my_args);
-int put_char7(va_list my_args);
-int put_percent7(va_list my_args);
-int _printfs(const char *format, ...);
+int put_char(va_list my_args);
+int put_specifier(va_list my_args);
+int put_specifier(c_specifier spacifiers[], char *format);
+int _printf(const char *format, ...);
+char *_strcpy(char *dest, char *src);
+char *rot13(char *src);
+int put_rot13(va_list my_args);
+int put_decimal(va_list my_args);
+char *helper(int bcount, unsigned int num);
+int put_binary_number(va_list my_args);
+char *helper_X(int bcount, unsigned int num);
+int put_heX_number(va_list my_args);
+char *helper_o(int bcount, unsigned int num);
+int put_octal_number(va_list my_args);
+int put_unsigned_decimal(va_list my_args);
+char *helper_x(int bcount, unsigned int num);
+int put_hex_number(va_list my_args);
+char *helper_XS(int bcount, unsigned int num);
+int put_S(va_list my_args);
+char *helper_xP(int bcount, unsigned long num);
+int put_P(va_list my_args);
+
 #endif
