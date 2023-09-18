@@ -7,7 +7,7 @@
 int _printf(const char *format, ...)
 {
 	c_specifier spec[] = {
-		{"s", put_str}, {"c", put_char},
+		{"%s", put_str}, {"%c", put_char},
 		{"%i", put_int}, {"%d", put_dec}, {"%r", put_str_rev},
 		{"%R", put_r13}, {"%b", put_bin}, {"%u", put_unsign},
 		{"%o", put_oct}, {"%x", put_hex2}, {"%X", put_hex},
@@ -58,8 +58,8 @@ int _printfs(const char *format, ...)
 	int m, count = 0;
 
 	PrintDescriptor data[] = {
-		{"c", put_char},
-		{"s", put_str}
+		{"%c", put_char},
+		{"%s", put_str}
 	};
 	va_start(my_args, format);
 	if (!format)
