@@ -15,13 +15,8 @@ int put_str(va_list my_args)
 	{
 		str = "(null)";
 		l = _strlen(str);
-		m = 0;
-		while (m < l)
-		{
+		for (m = 0; m < l; m++)
 			_putchar(str[m]);
-			m++;
-		}
-			
 		return (l);
 	}
 	else

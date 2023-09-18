@@ -13,7 +13,8 @@ int put_bin(va_list my_args)
     unsigned int inputNum = va_arg(my_args, unsigned int);
     unsigned int maskedNum;
 
-    for (bitIndex = 0; bitIndex < 32; bitIndex++)
+    bitIndex = 0;
+    while (bitIndex < 32)
     {
         maskedNum = ((singleBit << (31 - bitIndex)) & inputNum);
         if (maskedNum >> (31 - bitIndex))
@@ -24,6 +25,7 @@ int put_bin(va_list my_args)
             _putchar(binaryDigit + 48);
             count++;
         }
+        bitIndex++;
     }
     if (count == 0)
     {
