@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			return (-1);
 
         spec_found = 0;
-        for (w = 0; w <= 13; w++)
+        for (w = 13; w >= 0; w--)
         {
             if (spec[w].sp[0] == format[q] && spec[w].sp[1] == format[q + 1])
             {
