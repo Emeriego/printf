@@ -26,9 +26,9 @@ int reverse_string(va_list my_args)
 	q = 0;
 	while (q <= length / 2)
 	{
-		swap = s[q];
+		ap = s[q];
 		s[q] = s[length - q];
-		s[length - q] = swap;
+		s[length - q] = ap;
 		q++;
 	}
 

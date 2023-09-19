@@ -23,10 +23,12 @@ int put_specifier1(c_specifier specifics[], char *format)
 			return (-1);
 		}
 		fchar = format[q + 1];
-		for (q = 0; q < 14; q++)
+		q = 0;
+		while (q < 3)
 		{
 			if (specifics[q].sp == fchar)
-			return (q);
+				return (q);
+			q++;
 		}
 	}
 	return (-2);
