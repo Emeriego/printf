@@ -6,6 +6,7 @@
 #include <stdarg.h>
 #include <limits.h>
 #include <unistd.h>
+#include <string.h>
 
 
 
@@ -16,18 +17,18 @@
  */
 typedef struct PrintFunction
 {
-	char *sp;
+	char sp;
 	int (*f_ptr)(va_list my_args);
 } c_specifier;
 
 int put_string(va_list my_args);
 int put_char(va_list my_args);
 int put_specifier(va_list my_args);
-int put_specifier(c_specifier spacifiers[], char *format);
+int put_specifier1(c_specifier spacifiers[], char *format);
 int _printf(const char *format, ...);
 char *_strcpy(char *dest, char *src);
-char *rot13(char *src);
-int put_rot13(va_list my_args);
+char put_rot13(char *src);
+int reverse_rot13(va_list my_args);
 int put_decimal(va_list my_args);
 char *helper(int bcount, unsigned int num);
 int put_binary_number(va_list my_args);
@@ -42,5 +43,6 @@ char *helper_XS(int bcount, unsigned int num);
 int put_S(va_list my_args);
 char *helper_xP(int bcount, unsigned long num);
 int put_P(va_list my_args);
+int reverse_string(va_list my_args);
 
 #endif

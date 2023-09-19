@@ -1,13 +1,15 @@
 #include "main.h"
-
 /**
- * _putchar - writes the character c to standard output
- * @c: The character to print to the screen
- *
- * Return: 0 on success.
- */
-
-int _putchar(char c)
+ *put_char - function that prints character to the screen
+ *@my_args:variadic arguments
+ *Return:the number of characters printed
+*/
+int put_char(va_list my_args)
 {
-	return (write(1, &c, 1));
+	char c;
+
+	c = (char) va_arg(my_args, int);
+	write(STDOUT_FILENO, &c, 1);
+
+	return (1);
 }
