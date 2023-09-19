@@ -19,28 +19,30 @@ int _printf(const char *format, ...)
 	int q = 0, w, spec_found, l = 0;
 
 	va_start(my_args, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
-	while (format[q] != '\0')
-	{
-		spec_found = 0;
-		for (w = 13; w >= 0; w--)
-		{
-			if (spec[w].sp[0] == format[q] && spec[w].sp[1] == format[q + 1])
-			{
-				l += spec[w].f_ptr(my_args);
-				q = q + 2;
-				spec_found = 1;
-				break;
-			}
-		}
-		if (!spec_found)
-		{
-			_putchar(format[q]);
-			l++;
-			q++;
-		}
-	}
+	
+	while (format && format[q])
+    {
+		if (format[q] == '%' && (!format[q + 1] || format[q + 1] == ' '))
+			return (-1);
+
+        spec_found = 0;
+        for (w = 13; w >= 0; w--)
+        {
+            if (spec[w].sp[0] == format[q] && spec[w].sp[1] == format[q + 1])
+            {
+                l += spec[w].f_ptr(my_args);
+                q = q + 2;
+                spec_found = 1;
+                break;
+            }
+        }
+        if (!spec_found)
+        {
+            _putchar(format[q]);
+            l++;
+            q++;
+        }
+    }
 	va_end(my_args);
 	return (l);
 }
