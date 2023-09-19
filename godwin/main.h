@@ -20,17 +20,6 @@ typedef struct PrintFunction
 	int (*f_ptr)(va_list my_args);
 } c_specifier;
 
-/**
- * struct Function - print data
- * @specifier: character.
- * @function_pointer: function pointer
- */
-typedef struct Function
-{
-	char *specifier;
-	int (*function_pointer)(va_list my_args);
-} PrintDescriptor;
-
 static void put_flag(const char **format, va_list my_args, int *l);
 int put_ptr(va_list my_args);
 int put_hex2_aux(unsigned long int num);

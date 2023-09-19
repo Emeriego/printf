@@ -22,26 +22,25 @@ int _printf(const char *format, ...)
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	while (format[q] != '\0')
-    {
-        spec_found = 0;
-        for (w = 13; w >= 0; w--)
-        {
-            if (spec[w].sp[0] == format[q] && spec[w].sp[1] == format[q + 1])
-            {
-                put_flag(&format, my_args, &l);
-                l += spec[w].f_ptr(my_args);
-                q = q + 2;
-                spec_found = 1;
-                break;
-            }
-        }
-        if (!spec_found)
-        {
-            _putchar(format[q]);
-            l++;
-            q++;
-        }
-    }
+	{
+		spec_found = 0;
+		for (w = 13; w >= 0; w--)
+		{
+			if (spec[w].sp[0] == format[q] && spec[w].sp[1] == format[q + 1])
+			{
+				l += spec[w].f_ptr(my_args);
+				q = q + 2;
+				spec_found = 1;
+				break;
+			}
+		}
+		if (!spec_found)
+		{
+			_putchar(format[q]);
+			l++;
+			q++;
+		}
+	}
 	va_end(my_args);
 	return (l);
 }
