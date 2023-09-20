@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	};
 
 	va_list my_args;
-	int q = 0, w, spec_found, l = 0;
+	int q = 0, w, spec_found, len = 0;
 
 	va_start(my_args, format);
 
@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 				return (-1);
 			else if (spec[w].sp[0] == format[q] && spec[w].sp[1] == format[q + 1])
 			{
-				l += spec[w].f_ptr(my_args);
+				len += spec[w].f_ptr(my_args);
 				q = q + 2;
 				spec_found = 1;
 				break;
@@ -41,9 +41,9 @@ int _printf(const char *format, ...)
 		{
 			_putchar(format[q]);
 			l++;
-			q++;
 		}
+		q++;
 	}
 	va_end(my_args);
-	return (l);
+	return (len);
 }
