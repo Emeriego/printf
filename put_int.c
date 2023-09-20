@@ -8,38 +8,37 @@
 int put_int(va_list my_args)
 {
 	int n = va_arg(my_args, int);
-	int num, last = n % 10, digit, exp = 1;
-	int  i = 1;
+	int numbs, final = n % 10, numerals, x = 1;
+	int  q = 1;
 
 	n = n / 10;
-	num = n;
+	numbs = n;
 
-	if (last < 0)
+	if (final < 0)
 	{
 		_putchar('-');
-		num = -num;
+		numbs = -numbs;
 		n = -n;
-		last = -last;
-		i++;
+		final = -final;
+		q++;
 	}
-	if (num > 0)
+	if (numbs > 0)
 	{
-		while (num / 10 != 0)
+		while (numbs / 10 != 0)
 		{
-			exp = exp * 10;
-			num = num / 10;
+			x = x * 10;
+			numbs = numbs / 10;
 		}
-		num = n;
-		while (exp > 0)
+		
+		for (numbs = n; x > 0; q++)
 		{
-			digit = num / exp;
-			_putchar(digit + '0');
-			num = num - (digit * exp);
-			exp = exp / 10;
-			i++;
+			numerals = numbs / x;
+			_putchar(numerals + '0');
+			numbs = numbs - (numerals * x);
+			x = x / 10;
 		}
 	}
-	_putchar(last + '0');
+	_putchar(final + '0');
 
-	return (i);
+	return (q);
 }
