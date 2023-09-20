@@ -1,16 +1,21 @@
 #include "main.h"
 
+/************************* PRINT CHAR *************************/
+
 /**
- * put_char - Print a character
- * @my_args: The argument list
- *
- * Return: 1 if successful
+ * print_char - Prints a char
+ * @types: List a of arguments
+ * @buffer: Buffer array to handle print
+ * @flags:  Calculates active flags
+ * @width: Width
+ * @precision: Precision specification
+ * @size: Size specifier
+ * Return: Number of chars printed
  */
-
-int put_char(va_list my_args)
+int print_char(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
-	char character = va_arg(my_args, int);
+	char c = va_arg(types, int);
 
-	_putchar(character);
-	return (1);
+	return (handle_write_char(c, buffer, flags, width, precision, size));
 }

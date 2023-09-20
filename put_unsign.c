@@ -1,45 +1,36 @@
 #include "main.h"
+
+/************************* PRINT UNSIGNED NUMBER *************************/
 /**
- * put_unsign - prints integer
- * @my_args: argument to print
- * Return: number of characters printed
+ * put_unsigned - Prints an unsigned number
+ * @types: List a of arguments
+ * @buffer: Buffer array to handle print
+ * @flags:  Calculates active flags
+ * @width: get width
+ * @precision: Precision specification
+ * @size: Size specifier
+ * Return: Number of chars printed.
  */
-int put_unsign(va_list my_args)
+int put_unsigned(va_list types, char buffer[],
+	int flags, int width, int precision, int size)
 {
-	unsigned int n = va_arg(my_args, unsigned int);
-	int num, last_dig = n % 10, digit, x = 1;
-	int  i = 1;
+	int i = BUFF_SIZE - 2;
+	unsigned long int num = va_arg(types, unsigned long int);
 
-	n = n / 10;
-	num = n;
+	num = convert_size_unsgnd(num, size);
 
-	if (last_dig < 0)
+	if (num == 0)
+		buffer[i--] = '0';
+
+	buffer[BUFF_SIZE - 1] = '\0';
+
+	while (num > 0)
 	{
-		_putchar('-');
-		num = -num;
-		n = -n;
-		last_dig = -last_dig;
-		i++;
+		buffer[i--] = (num % 10) + '0';
+		num /= 10;
 	}
-	if (num > 0)
-	{
-		while (num / 10 != 0)
-		{
-			x = x * 10;
-			num = num / 10;
-		}
-		num = n;
-		while (x > 0)
-		{
-			digit = num / x;
-			_putchar(digit + '0');
-			num = num - (digit * x);
-			x = x / 10;
-			i++;
-		}
-	}
-	_putchar(last_dig + '0');
 
-	return (i);
+	i++;
+
+	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
-
