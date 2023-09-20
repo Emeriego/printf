@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * put_n_w - Prints a string
+ * put_number - Prints a string
  * @is_neg: Lista of arguments
  * @ind: char types.
  * @buffer: Buffer array to handle print
@@ -11,7 +11,7 @@
  *
  * Return: returns Number of chars printed.
  */
-int put_n_w(int is_neg, int ind, char buffer[],
+int put_number(int is_neg, int ind, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int len = BUFF_SIZE - ind - 1;
@@ -28,6 +28,6 @@ int put_n_w(int is_neg, int ind, char buffer[],
 	else if (flags & F_SPACE)
 		xtra_c = ' ';
 
-	return (put_n(ind, buffer, flags, width, precision,
+	return (put_num(ind, buffer, flags, width, precision,
 		len, pad_space, xtra_c));
 }

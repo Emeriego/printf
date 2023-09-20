@@ -39,5 +39,5 @@ int put_int(va_list types, char buffer[],
 
 	b++;
 
-	return (put_n_w(is_neg, i, buffer, flags, width, precision, size));
+	return (put_number(is_neg, b, buffer, flags, width, precision, size));
 }

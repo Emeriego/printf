@@ -13,6 +13,7 @@
  */
 int putchar_handler(char c, char buffer[],
 	int flags, int width, int precision, int size)
+{
 	int i = 0;
 	char space_pad = ' ';
 

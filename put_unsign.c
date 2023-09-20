@@ -28,7 +28,7 @@ int put_unsign(va_list types, char buffer[],
 		num /= 10;
 	}
 
-	i++;
+	b++;
 
 	return (put_unsign_w(0, b, buffer, flags, width, precision, size));
 }

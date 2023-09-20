@@ -20,7 +20,7 @@ int put_hex(va_list types, char map_to[], char buffer[],
 	unsigned long int init_num = num;
 
 	UNUSED(width);
-	num = conv_unsign(num, size);
+	num = conv_uns(num, size);
 	if (num == 0)
 		buffer[i--] = '0';
 

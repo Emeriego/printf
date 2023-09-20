@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * put_n_w2 - Write a number using a bufffer
+ * put_num - Write a number using a bufffer
  * @ind: Index at which the number starts on the buffer
  * @buffer: Buffer
  * @flags: Flags
@@ -12,7 +12,7 @@
  *
  * Return: returns Number of printed chars.
  */
-int put_n_w2(int ind, char buffer[],
+int put_num(int ind, char buffer[],
 	int flags, int width, int prec,
 	int length, char padd, char extra_c)
 {

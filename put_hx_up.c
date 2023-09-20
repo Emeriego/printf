@@ -9,7 +9,7 @@
  * @size: Size specifier
  * Return: returns Number of chars printed
  */
-int put_hex_up(va_list types, char buffer[],
+int put_hx_up(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	return (put_hex(types, "0123456789ABCDEF", buffer,
