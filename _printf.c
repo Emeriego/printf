@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	c_specifier spec[] = {
-		{"%s", put_str}, {"%c", put_character},
+		{"%s", put_string}, {"%c", put_character},
 		{"%i", put_int}, {"%d", put_dec}, {"%r", put_str_rev},
 		{"%R", put_r13}, {"%b", put_bin}, {"%u", put_unsign},
 		{"%o", put_oct}, {"%x", put_hex2}, {"%X", put_hex},
