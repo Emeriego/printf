@@ -1,28 +1,26 @@
 #include "main.h"
 
-/************************* WRITE HANDLE *************************/
 /**
- * handle_write_char - Prints a string
+ * putchar_handler - Prints a string
  * @c: char types.
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags.
- * @width: get width.
+ * @width: gets width.
  * @precision: precision specifier
  * @size: Size specifier
  *
- * Return: Number of chars printed.
+ * Return: returns Number of chars printed.
  */
-int handle_write_char(char c, char buffer[],
+int putchar_handler(char c, char buffer[],
 	int flags, int width, int precision, int size)
-{ /* char is stored at left and paddind at buffer's right */
 	int i = 0;
-	char padd = ' ';
+	char space_pad = ' ';
 
 	UNUSED(precision);
 	UNUSED(size);
 
 	if (flags & F_ZERO)
-		padd = '0';
+		space_pad = '0';
 
 	buffer[i++] = c;
 	buffer[i] = '\0';
@@ -31,7 +29,7 @@ int handle_write_char(char c, char buffer[],
 	{
 		buffer[BUFF_SIZE - 1] = '\0';
 		for (i = 0; i < width - 1; i++)
-			buffer[BUFF_SIZE - i - 2] = padd;
+			buffer[BUFF_SIZE - i - 2] = space_pad;
 
 		if (flags & F_MINUS)
 			return (write(1, &buffer[0], 1) +

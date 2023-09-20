@@ -1,8 +1,7 @@
 #include "main.h"
 
-/************************* PRINT BINARY *************************/
 /**
- * print_binary - Prints an unsigned number
+ * put_bin - Prints an unsigned number
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -11,11 +10,11 @@
  * @size: Size specifier
  * Return: Numbers of char printed.
  */
-int print_binary(va_list types, char buffer[],
+int put_bin(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	unsigned int n, m, i, sum;
-	unsigned int a[32];
+	unsigned int alpha[32];
 	int count;
 
 	UNUSED(buffer);
@@ -25,23 +24,25 @@ int print_binary(va_list types, char buffer[],
 	UNUSED(size);
 
 	n = va_arg(types, unsigned int);
-	m = 2147483648; /* (2 ^ 31) */
-	a[0] = n / m;
+	m = 2147483648;
+	alpha[0] = n / m;
 	for (i = 1; i < 32; i++)
 	{
 		m /= 2;
-		a[i] = (n / m) % 2;
+		alpha[i] = (n / m) % 2;
 	}
-	for (i = 0, sum = 0, count = 0; i < 32; i++)
+	i = 0, sum = 0, count = 0;
+	while (i < 32)
 	{
-		sum += a[i];
+		sum += alpha[i];
 		if (sum || i == 31)
 		{
-			char z = '0' + a[i];
+			char z = '0' + alpha[i];
 
 			write(1, &z, 1);
 			count++;
 		}
+		i++;
 	}
 	return (count);
 }
