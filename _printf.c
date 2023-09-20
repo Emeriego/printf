@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _printf - is a function that selects the correct function to print.
  * @format: identifier to look for.
@@ -7,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	c_specifier spec[] = {
-		{"%s", put_str}, {"%c", put_char},
+		{"%s", put_string}, {"%c", put_char7},
 		{"%i", put_int}, {"%d", put_dec}, {"%r", put_str_rev},
 		{"%R", put_r13}, {"%b", put_bin}, {"%u", put_unsign},
 		{"%o", put_oct}, {"%x", put_hex2}, {"%X", put_hex},
@@ -15,30 +16,31 @@ int _printf(const char *format, ...)
 	};
 
 	va_list my_args;
-	int i = 0, j, len = 0;
+	int q = 0, w, spec_found, l = 0;
 
 	va_start(my_args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-
-Here:
-	while (format[i] != '\0')
+	while (format[q] != '\0')
 	{
-		j = 13;
-		while (j >= 0)
+		spec_found = 0;
+		for (w = 13; w >= 0; w--)
 		{
-			if (spec[j].sp[0] == format[i] && spec[j].sp[1] == format[i + 1])
+			if (spec[w].sp[0] == format[q] && spec[w].sp[1] == format[q + 1])
 			{
-				len += spec[j].f_ptr(my_args);
-				i = i + 2;
-				goto Here;
+				l += spec[w].f_ptr(my_args);
+				q = q + 2;
+				spec_found = 1;
+				break;
 			}
-			j--;
 		}
-		_putchar(format[i]);
-		len++;
-		i++;
+		if (!spec_found)
+		{
+			_putchar(format[q]);
+			l++;
+			q++;
+		}
 	}
 	va_end(my_args);
-	return (len);
+	return (l);
 }
