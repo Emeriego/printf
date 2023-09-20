@@ -7,8 +7,6 @@
 #include <limits.h>
 #include <stdlib.h>
 
-
-
 /**
  * struct PrintFunction - print data
  * @sp: character.
@@ -35,7 +33,6 @@ int put_int(va_list my_args);
 int put_dec(va_list my_args);
 int _strlen(char *s);
 int _strlenc(const char *s);
-int rev_string(char *s);
 int put_char(va_list my_args);
 int put_str(va_list my_args);
 int _putchar(char c);
@@ -47,5 +44,4 @@ int put_ptr2(va_list my_args);
 int put_str7(va_list my_args);
 int put_char7(va_list my_args);
 int put_percent7(va_list my_args);
-int _printfs(const char *format, ...);
 #endif

@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * put_bin - prints binary numbers.
  * @my__args: arguments.
