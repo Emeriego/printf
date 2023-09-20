@@ -1,44 +1,44 @@
 #include "main.h"
-/************************* PRINT INT *************************/
 /**
- * print_int - Print int
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
- * @width: get width.
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Number of chars printed
+ * put_int - Print an integer
+ * @my_args: The argument list
+ *
+ * Return: The number of characters printed
  */
-int print_int(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+int put_int(va_list my_args)
 {
-	int i = BUFF_SIZE - 2;
-	int is_negative = 0;
-	long int n = va_arg(types, long int);
-	unsigned long int num;
+	int n = va_arg(my_args, int);
+	int numbs, final = n % 10, numerals, x = 1;
+	int  q = 1;
 
-	n = convert_size_number(n, size);
+	n = n / 10;
+	numbs = n;
 
-	if (n == 0)
-		buffer[i--] = '0';
-
-	buffer[BUFF_SIZE - 1] = '\0';
-	num = (unsigned long int)n;
-
-	if (n < 0)
+	if (final < 0)
 	{
-		num = (unsigned long int)((-1) * n);
-		is_negative = 1;
+		_putchar('-');
+		numbs = -numbs;
+		n = -n;
+		final = -final;
+		q++;
 	}
-
-	while (num > 0)
+	if (numbs > 0)
 	{
-		buffer[i--] = (num % 10) + '0';
-		num /= 10;
+		while (numbs / 10 != 0)
+		{
+			x = x * 10;
+			numbs = numbs / 10;
+		}
+		
+		for (numbs = n; x > 0; q++)
+		{
+			numerals = numbs / x;
+			_putchar(numerals + '0');
+			numbs = numbs - (numerals * x);
+			x = x / 10;
+		}
 	}
+	_putchar(final + '0');
 
-	i++;
-
-	return (write_number(is_negative, i, buffer, flags, width, precision, size));
+	return (q);
 }
