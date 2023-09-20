@@ -40,9 +40,9 @@ int _printf(const char *format, ...)
 		if (!spec_found)
 		{
 			_putchar(format[q]);
-			l++;
-			q++;
+			len++;
 		}
+		q++;
 	}
 	va_end(my_args);
 	return (len);
