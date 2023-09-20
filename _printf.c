@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 	while (format && *(format + q))
 	{
 		spec_found = 0;
-		for (w = 13; w >= 0; w--)
+		for (w = 0; w <= 13; w++)
 		{
 			if (format[q] == '%' && (!format[q + 1] || format[q + 1] == ' '))
 				return (-1);
