@@ -29,7 +29,7 @@ Here:
 		{
 			if (spec[j].sp[0] == format[i] && spec[j].sp[1] == format[i + 1])
 			{
-				len += spec[j].f(my_args);
+				len += spec[j].f_ptr(my_args);
 				i = i + 2;
 				goto Here;
 			}
