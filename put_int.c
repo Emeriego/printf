@@ -7,18 +7,39 @@
  */
 int put_int(va_list my_args)
 {
-	int num = va_arg(my_args, int);
-	int count = 0;
+	int n = va_arg(my_args, int);
+	int num, last = n % 10, digit, exp = 1;
+	int  i = 1;
 
-	if (num < 0)
+	n = n / 10;
+	num = n;
+
+	if (last < 0)
 	{
-		count += _putchar('-');
+		_putchar('-');
 		num = -num;
+		n = -n;
+		last = -last;
+		i++;
 	}
-	if (num / 10 != 0)
+	if (num > 0)
 	{
-		count += put_int(my_args);
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num - (digit * exp);
+			exp = exp / 10;
+			i++;
+		}
 	}
-	count += _putchar('0' + (num % 10));
-	return (count);
+	_putchar(last + '0');
+
+	return (i);
 }
