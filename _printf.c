@@ -3,7 +3,7 @@
 /**
  * _printf - is a function that selects the correct function to print.
  * @format: identifier to look for.
- * Return: the length of the string.
+ * Return: returns the length of the string.
  */
 int _printf(const char *format, ...)
 {
@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 		{"%i", put_int}, {"%d", put_dec}, {"%r", put_str_rev},
 		{"%R", put_r13}, {"%b", put_bin}, {"%u", put_unsign},
 		{"%o", put_oct}, {"%x", put_hex2}, {"%X", put_hex},
-		{"%S", put_str_ex}, {"%p", put_ptr2}, {"%%", put_percent7}
+		{"%S", put_str_ex}, {"%p", put_ptr2}
 	};
 
 	va_list my_args;
@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 	while (format && *(format + q))
 	{
 		spec_found = 0;
-		for (w = 0; w <= 13; w++)
+		for (w = 0; w <= 12; w++)
 		{
 			if (format[q] == '%' && (!format[q + 1] || format[q + 1] == ' '))
 				return (-1);
