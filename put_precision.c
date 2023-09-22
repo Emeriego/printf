@@ -18,8 +18,7 @@ int put_precision(const char *format, int *i, va_list list)
 
 	prec = 0;
 
-	len += 1;
-	while (format[len] != '\0')
+	for (len += 1; format[len] != '\0'; len++)
 	{
 		if (dig(format[len]))
 		{
@@ -34,7 +33,6 @@ int put_precision(const char *format, int *i, va_list list)
 		}
 		else
 			break;
-		len++;
 	}
 	*i = len - 1;
 	return (prec);
