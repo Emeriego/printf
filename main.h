@@ -18,7 +18,7 @@
 #define S_SHORT 1
 
 /**
- * struct fmt - Struct op
+ * struct fmt - Structure
  *
  * @fmt: The format.
  * @fn: The function associated.
@@ -102,6 +102,7 @@ int dig(char);
 
 long int conv_num(long int num, int size);
 long int conv_uns(unsigned long int num, int size);
+void put_buff(char buffer[], int *b_ind);
 
 #endif
 

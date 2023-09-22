@@ -4,7 +4,7 @@
  * @num: Number to be casted
  * @size: Number indicating the type to be casted
  *
- * Return: Casted value of num
+ * Return: returns value of num
  */
 long int conv_uns(unsigned long int n, int size)
 {

@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * dig - Verifies if a char is a digit
+ * dig - Verifies a digit
  * @ch: Char to be evaluated
  *
- * Return: 1 if c is a digit, 0 otherwise
+ * Return: returns 1 if c is a digit, 0 otherwise
  */
 int dig(char ch)
 {

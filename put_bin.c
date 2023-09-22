@@ -8,7 +8,7 @@
  * @width: get width.
  * @precision: Precision specification
  * @size: Size specifier
- * Return: Numbers of char printed.
+ * Return: returns Numbers of char printed.
  */
 int put_bin(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -26,10 +26,12 @@ int put_bin(va_list types, char buffer[],
 	n = va_arg(types, unsigned int);
 	m = 2147483648;
 	alpha[0] = n / m;
-	for (i = 1; i < 32; i++)
+	i = 1;
+	while (i < 32)
 	{
 		m /= 2;
 		alpha[i] = (n / m) % 2;
+		i++;
 	}
 	i = 0, sum = 0, count = 0;
 	while (i < 32)
