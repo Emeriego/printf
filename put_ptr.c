@@ -39,7 +39,7 @@ int put_ptr(va_list types, char buffer[],
 	}
 
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
-		p= '0';
+		p = '0';
 	if (flags & F_PLUS)
 		e = '+', length++;
 	else if (flags & F_SPACE)

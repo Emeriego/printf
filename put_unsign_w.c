@@ -42,7 +42,7 @@ int put_unsign_w(int is_negative, int ind,
 
 		buffer[i] = '\0';
 
-		if (flags & F_MINUS) 
+		if (flags & F_MINUS)
 		{
 			return (write(1, &buffer[ind], b) + write(1, &buffer[0], i));
 		}

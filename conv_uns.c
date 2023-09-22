@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * conv_uns - This Casts a number to the specified size
- * @num: Number to be casted
+ * @n: Number to be casted
  * @size: Number indicating the type to be casted
  *
  * Return: returns value of num
