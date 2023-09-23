@@ -10,14 +10,13 @@
  */
 int put_precision(const char *format, int *i, va_list list)
 {
-	int len = *i + 1;
-	int prec = -1;
+	int len = *i + 1, prec = -1;
 
 	if (format[len] != '.')
+	{
 		return (prec);
-
+	}
 	prec = 0;
-
 	for (len += 1; format[len] != '\0'; len++)
 	{
 		if (dig(format[len]))

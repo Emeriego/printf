@@ -22,7 +22,9 @@ int put_non_putable(va_list types, char buffer[],
 	UNUSED(size);
 
 	if (str == NULL)
+	{
 		return (write(1, "(null)", 6));
+	}
 
 	for (i = 0; str[i] != '\0'; i++)
 	{

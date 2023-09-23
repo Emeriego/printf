@@ -18,14 +18,14 @@ int put_oct(va_list types, char buffer[],
 	unsigned long int init_n = num;
 
 	UNUSED(width);
-
 	num = conv_uns(num, size);
 
 	if (num == 0)
+	{
 		buffer[b--] = '0';
+	}
 
 	buffer[BUFF_SIZE - 1] = '\0';
-
 	while (num > 0)
 	{
 		buffer[b--] = (num % 8) + '0';
@@ -36,7 +36,6 @@ int put_oct(va_list types, char buffer[],
 		buffer[b--] = '0';
 
 	b++;
-
 	return (put_unsign_w(0, b, buffer, flags, width, precision, size));
 }
 

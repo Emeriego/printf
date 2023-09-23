@@ -12,7 +12,8 @@
 int put_char(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	char ch = va_arg(types, int);
+	char ch;
 
+	ch = va_arg(types, int);
 	return (putchar_handler(ch, buffer, flags, width, precision, size));
 }

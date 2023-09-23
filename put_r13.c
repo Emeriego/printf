@@ -16,8 +16,8 @@ int put_r13(va_list types, char buffer[],
 	char *s;
 	unsigned int i, j;
 	int count = 0;
-	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char r_alpha[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char r_alpha[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	s = va_arg(types, char *);
 	UNUSED(buffer);
@@ -25,10 +25,10 @@ int put_r13(va_list types, char buffer[],
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
-
 	if (s == NULL)
 		s = "(null)";
-	for (i = 0; s[i]; i++)
+	i = 0;
+	while (s[i])
 	{
 		for (j = 0; alpha[j]; j++)
 		{
@@ -46,6 +46,7 @@ int put_r13(va_list types, char buffer[],
 			write(1, &x, 1);
 			count++;
 		}
+		i++;
 	}
 	return (count);
 }
