@@ -1,6 +1,9 @@
 # A custom _printf function implementation
 
 Writing our own `printf` function, this is a project done under ALX Low Level Programming
+The _printf function is a custom implementation of the standard C library 
+function printf. It allows you to format and output text to the console or 
+other output streams.
 
 ## Resource
 - [secrets of printf](https://www.academia.edu/10297206/Secrets_of_printf_)
@@ -25,10 +28,6 @@ Writing our own `printf` function, this is a project done under ALX Low Level Pr
 - The `format` string argument is a constant character string composed of zero or more directives: ordinary characters (apart from `%`) which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments.
 - Conversion specification is introduced by the character `%` and ends with a conversion specifier (which in whole make up the format specifier)
 
-
-The _printf function is a custom implementation of the standard C library 
-function printf. It allows you to format and output text to the console or 
-other output streams.
 
 ## This program implements a custom printf function that supports the following conversion specifiers:
 
