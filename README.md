@@ -1,6 +1,6 @@
 ## A custom _printf function implementation
 
-Writing our own `printf` function, this is a project done under ALX Low Level Programming.
+Writing our own `printf` function, this is a project done under ALX Low Level Programming
 
 ## Resource
 
