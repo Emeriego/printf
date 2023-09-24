@@ -23,7 +23,7 @@ Writing our own `printf` function, this is a project done under ALX Low Level Pr
 ## Format of the Argument String
 
 - The `format` string argument is a constant character string composed of zero or more directives: ordinary characters (apart from `%`) which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments.
-- Conversion specification is introduced by the character `%` and ends with a conversion specifier (which in whole make up the format specifier.)
+- Conversion specification is introduced by the character `%` and ends with a conversion specifier (which in whole make up the format specifier)
 
 
 The _printf function is a custom implementation of the standard C library 
