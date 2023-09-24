@@ -12,8 +12,7 @@
 int put_int(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int b = BUFF_SIZE - 2;
-	int is_neg = 0;
+	int b = BUFF_SIZE - 2, is_neg = 0;
 	long int n = va_arg(types, long int);
 	unsigned long int num;
 
@@ -21,10 +20,8 @@ int put_int(va_list types, char buffer[],
 
 	if (n == 0)
 		buffer[b--] = '0';
-
 	buffer[BUFF_SIZE - 1] = '\0';
 	num = (unsigned long int)n;
-
 	if (n < 0)
 	{
 		num = (unsigned long int)((-1) * n);
@@ -38,6 +35,5 @@ int put_int(va_list types, char buffer[],
 	}
 
 	b++;
-
 	return (put_number(is_neg, b, buffer, flags, width, precision, size));
 }

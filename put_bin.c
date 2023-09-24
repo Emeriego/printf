@@ -15,7 +15,7 @@ int put_bin(va_list types, char buffer[],
 {
 	unsigned int n, m, i, sum;
 	unsigned int alpha[32];
-	int count;
+	int c;
 
 	UNUSED(buffer);
 	UNUSED(flags);
@@ -33,7 +33,7 @@ int put_bin(va_list types, char buffer[],
 		alpha[i] = (n / m) % 2;
 		i++;
 	}
-	i = 0, sum = 0, count = 0;
+	i = 0, sum = 0, c = 0;
 	while (i < 32)
 	{
 		sum += alpha[i];
@@ -42,10 +42,10 @@ int put_bin(va_list types, char buffer[],
 			char z = '0' + alpha[i];
 
 			write(1, &z, 1);
-			count++;
+			c++;
 		}
 		i++;
 	}
-	return (count);
+	return (c);
 }
 

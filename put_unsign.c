@@ -18,17 +18,15 @@ int put_unsign(va_list types, char buffer[],
 	num = conv_uns(num, size);
 
 	if (num == 0)
+	{
 		buffer[b--] = '0';
-
+	}
 	buffer[BUFF_SIZE - 1] = '\0';
-
 	while (num > 0)
 	{
 		buffer[b--] = (num % 10) + '0';
 		num /= 10;
 	}
-
 	b++;
-
 	return (put_unsign_w(0, b, buffer, flags, width, precision, size));
 }

@@ -28,18 +28,17 @@ int put_rev(va_list types, char buffer[],
 	if (str == NULL)
 	{
 		UNUSED(precision);
-
 		str = "(Null)";
 	}
 	for (i = 0; str[i]; i++)
 		;
-
-	for (i = i - 1; i >= 0; i--)
+	i = i - 1;
+	while (i >= 0)
 	{
 		z = str[i];
-
 		write(1, &z, 1);
 		count++;
+		i--;
 	}
 	return (count);
 }

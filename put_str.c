@@ -26,7 +26,6 @@ int put_str(va_list types, char buffer[],
 		if (precision >= 6)
 			str = "      ";
 	}
-
 	while (str[len] != '\0')
 		len++;
 	if (precision >= 0 && precision < len)
@@ -48,6 +47,5 @@ int put_str(va_list types, char buffer[],
 			return (width);
 		}
 	}
-
 	return (write(1, str, len));
 }

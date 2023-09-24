@@ -14,8 +14,8 @@
 int put_ptr(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	char e = 0, p = ' ';
-	int ind = BUFF_SIZE - 2, length = 2, padd_start = 1;
+	char p = ' ', e = 0;
+	int l = 2, ind = BUFF_SIZE - 2, ps = 1;
 	unsigned long num_addrs;
 	char map_me[] = "0123456789abcdef";
 	void *addrs = va_arg(types, void *);
@@ -24,28 +24,26 @@ int put_ptr(va_list types, char buffer[],
 	UNUSED(size);
 
 	if (addrs == NULL)
-		return (write(1, "(nill)", 5));
+		return (write(1, "(null)", 5));
 
 	buffer[BUFF_SIZE - 1] = '\0';
 	UNUSED(precision);
-
 	num_addrs = (unsigned long)addrs;
 
 	while (num_addrs > 0)
 	{
 		buffer[ind--] = map_me[num_addrs % 16];
 		num_addrs /= 16;
-		length++;
+		l++;
 	}
 
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
 		p = '0';
 	if (flags & F_PLUS)
-		e = '+', length++;
+		e = '+', l++;
 	else if (flags & F_SPACE)
-		e = ' ', length++;
+		e = ' ', l++;
 	ind++;
-
-	return (put_ptr_w(buffer, ind, length,
-		width, flags, p, e, padd_start));
+	return (put_ptr_w(buffer, ind, l,
+		width, flags, p, e, ps));
 }

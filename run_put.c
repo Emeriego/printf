@@ -15,13 +15,14 @@ int run_put(const char *fmt, int *ind, va_list my_args, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int i, x_len = 0, characters = -1;
-	fmt_t format_specs[] = {
+	my_format format_specs[] = {
 		{'c', put_char}, {'s', put_str}, {'%', put_percent},
 		{'i', put_int}, {'d', put_int}, {'b', put_bin},
 		{'u', put_unsign}, {'o', put_oct}, {'x', put_hex_dec},
 		{'X', put_hx_up}, {'p', put_ptr}, {'S', put_non_putable},
 		{'r', put_rev}, {'R', put_r13}, {'\0', NULL}
 	};
+
 	i = 0;
 	while (format_specs[i].fmt != '\0')
 	{
