@@ -1,7 +1,6 @@
 ## A custom _printf function implementation
 
-Writing our own `printf` function, this is a project done under [ALX Low Level Programming](https://github.com/chrixsaint/alx-low_level_programming).
-
+Writing our own `printf` function, this is a project done under (ALX Low Level Programming).
 
 The _printf function is a custom implementation of the standard C library 
 function printf. It allows you to format and output text to the console or 
