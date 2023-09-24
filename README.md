@@ -53,10 +53,9 @@ other output streams.
 
     %r : prints the reversed string
     %R : prints the rot13'ed string
-
-## The maximum field width that can be specified is 1024 characters. This buffer size is used to minimize the number of calls to the write function.
+    The maximum field width that can be specified is 1024 characters. This buffer size is used to minimize the number of calls to the write function.
     
-#### AUTHORS
+## AUTHORS
 This project is a collaboration between:
 Godwin Ojukwu --> [My Github Profile](https://github.com/Emeriego)
 
