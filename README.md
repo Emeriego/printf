@@ -1,6 +1,6 @@
 ## A custom _printf function implementation
 
-Writing our own `printf` function, this is a project done under ## ALX Low Level Programming.
+Writing our own `printf` function, this is a project done under ALX Low Level Programming.
 
 ## Resource
 
@@ -58,7 +58,7 @@ The maximum field width that can be specified is 1024 characters. This buffer si
     
 ## AUTHORS
     This project is a collaboration between:
-    Godwin Ojukwu --> [My Github Profile](https://github.com/Emeriego)
-    Christian Ochenehi Peter --> [My GitHub Profile](https://github.com/chrixsaint)
+Godwin Ojukwu --> [My Github Profile](https://github.com/Emeriego)
+Christian Ochenehi Peter --> [My GitHub Profile](https://github.com/chrixsaint)
     
 
