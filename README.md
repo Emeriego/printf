@@ -7,6 +7,7 @@ Writing our own `printf` function, this is a project done under ALX Low Level Pr
 - [secrets of printf](https://www.cypress.com/file/54761/download)
 - [Implementing printf and scanf in C](https://iq.opengenus.org/how-printf-and-scanf-function-works-in-c-internally/)
 - [All About Printf](https://akshatshibu.wordpress.com/2015/07/22/all-about-printf/)
+- [Youtube video to get a glimps](https://www.youtube.com/watch?si=nKHZWDlEGsBWBwNX&v=ASyB26Onryw&feature=youtu.be)
 
 
 ## Description
