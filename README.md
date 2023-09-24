@@ -5,6 +5,28 @@ The _printf function is a custom implementation of the standard C library
 function printf. It allows you to format and output text to the console or 
 other output streams.
 
+## Resource
+
+- [secrets of printf](https://www.cypress.com/file/54761/download)
+- [Implementing printf and scanf in C](https://iq.opengenus.org/how-printf-and-scanf-function-works-in-c-internally/)
+- [All About Printf](https://akshatshibu.wordpress.com/2015/07/22/all-about-printf/)
+
+
+## Description
+
+- The function `_printf` writes output to stdout. The function writes under the control of a `format` string that specifies how subsequent arguments (accessed via the variable-length argument facilities of standard library `stdarg`) are converted for output.
+
+- Prototype: `int _printf(const char *format, ...);`
+
+## Return
+
+- Upon success, `_printf` returns the number of characters printed (**excluding the terminating null byte used to end output to strings**). If an output error is encountered, the function returns `-1`.
+
+## Format of the Argument String
+
+- The `format` string argument is a constant character string composed of zero or more directives: ordinary characters (apart from `%`) which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments.
+- Conversion specification is introduced by the character `%` and ends with a conversion specifier (which in whole make up the format specifier.)
+
 This program implements a custom printf function that supports the following conversion specifiers:
 
     **%c** : prints a single character
@@ -35,5 +57,4 @@ The maximum field width that can be specified is 1024 characters. This buffer si
     AUTHORS
     This project is a collaboration between:
     Godwin Ojukwu
-    Christian Ochenehi Peter --> My GitHub Profile --> https://github.com/chrixsaint
-    
+    Christian Ochenehi Peter --> [My GitHub Profile](https://github.com/chrixsaint)
